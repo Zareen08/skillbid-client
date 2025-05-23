@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Footer = () => {
+const AddTask = () => {
     return (
         <div>
-           
+            
         </div>
     );
 };
 
-export default Footer;
+export default AddTask;
