@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
-const TaskCards = ({task}) => {
+const TaskCards = ({task, tasks, setTasks}) => {
     const { _id,title, photo, description, deadline, budget} = task;
 
     const handleDelete = (_id)=>{
@@ -30,6 +31,9 @@ const TaskCards = ({task}) => {
               text: "Your file has been deleted.",
               icon: "success"
               });
+
+              const remainingTasks = tasks.filter(tas=> tas._id !==_id);
+              setTasks(remainingTasks);
             }
         })
      
@@ -54,8 +58,12 @@ const TaskCards = ({task}) => {
              </div>
              <div className='card-actions justify-end'>
                 <div className="join join-vertical">
+            <Link to={`/task/${_id}`}>
             <button className="btn join-item text-white bg-[#3DB34B]">View</button>
+            </Link>
+            <Link to={`/updateTask/${_id}`}>
             <button className="btn join-item text-white bg-[#3DB34B]">Edit</button>
+            </Link>
             <button onClick={()=>handleDelete(_id)} className="btn join-item text-white bg-[#3DB34B]">X</button>
             </div>
              </div>
