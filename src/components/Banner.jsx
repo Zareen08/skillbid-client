@@ -12,7 +12,7 @@ const slides = [
   {
     title: 'Connect with Skilled Freelancers',
     description: 'Browse freelancer profiles and choose the right expert to get your job done efficiently.',
-    image: 'https://i.ibb.co/6JTJZhBh/20250607-1617-image.png',
+    image: '/banner3.png',
   },
   {
     title: 'Manage & Update Tasks Anytime',

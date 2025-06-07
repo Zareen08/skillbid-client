@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router';
 import TaskCards from './TaskCards';
 import FaqsSec from './FaqsSec';
 import Banner from './Banner';
+import WhyChooseUs from './WhyChooseUs';
 
 const Home = () => {
     const initialTasks = useLoaderData();
@@ -29,6 +30,9 @@ const Home = () => {
                     task={task}></TaskCards>)
                 }
             </div>
+        </div>
+        <div>
+            <WhyChooseUs></WhyChooseUs>
         </div>
         <div >
             <FaqsSec></FaqsSec>
