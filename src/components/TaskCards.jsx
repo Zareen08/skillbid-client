@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
 const TaskCards = ({task, tasks, setTasks}) => {
-    const { _id,title, photo, description, deadline, budget} = task;
+const { _id,title, photo, description, deadline, budget} = task;
 
     const handleDelete = (_id)=>{
      console.log(_id)

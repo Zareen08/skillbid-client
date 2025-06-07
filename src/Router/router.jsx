@@ -4,6 +4,7 @@ import Home from "../components/Home";
 import AddTask from "../Components/AddTask";
 import UpdateTask from "../components/UpdateTask";
 import TaskDetails from "../Components/TaskDetails";
+import BrowseTasks from "../Components/BrowseTasks";
 
 
 
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
             index:true,
             loader:()=>fetch('http://localhost:4000/tasks') ,
             Component: Home,
+        },
+        {
+            path: '/browsetask',
+            loader:()=>fetch('http://localhost:4000/tasks') ,
+            Component: BrowseTasks,
         },
         {
             path: 'addTask',
