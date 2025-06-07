@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLoaderData } from 'react-router';
 import TaskCards from './TaskCards';
 import FaqsSec from './FaqsSec';
+import Banner from './Banner';
 
 const Home = () => {
     const initialTasks = useLoaderData();
@@ -10,6 +11,10 @@ const Home = () => {
     console.log(tasks);
     return (
        <div>
+
+        <div>
+            <Banner></Banner>
+        </div>
          <div>
             <div className='p-12 text-center space-y-4'>
                     <h1 className='text-4xl md:text-6xl'>Featured Tasks</h1>
@@ -25,7 +30,7 @@ const Home = () => {
                 }
             </div>
         </div>
-        <div>
+        <div >
             <FaqsSec></FaqsSec>
         </div>
        </div>
