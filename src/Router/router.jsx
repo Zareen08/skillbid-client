@@ -5,6 +5,8 @@ import AddTask from "../Components/AddTask";
 import UpdateTask from "../components/UpdateTask";
 import TaskDetails from "../Components/TaskDetails";
 import BrowseTasks from "../Components/BrowseTasks";
+import AboutUs from "../Components/AboutUs";
+import Terms from "../Components/Terms";
 
 
 
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
         {
             path: 'addTask',
             Component:AddTask,
+        },
+        {
+            path: 'about',
+            Component:AboutUs,
+        },
+        {
+            path: 'terms',
+            Component:Terms,
         },
         {
             path: 'task/:id',
