@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <div>
             <footer className="footer footer-horizontal footer-center bg-green-50 text-neutral-content rounded p-10 mx-auto">
-            <a className="btn btn-ghost text-xl flex"><img src="logo.png" alt="" className='w-30'/></a>
+            <a className="btn btn-ghost text-xl flex"><img src="/public/logo.png" alt="logo" className='w-30'/></a>
 
   <nav className="grid grid-flow-col gap-4 text-black">
     <NavLink to={'/'} className="link link-hover">Home</NavLink>

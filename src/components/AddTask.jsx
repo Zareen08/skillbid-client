@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContex } from './AuthContex'; 
 
 const AddTask = () => {
+  const { user } = useContext(AuthContex); 
 
   const handleAddTask = e => {
     e.preventDefault();
@@ -34,7 +36,7 @@ const AddTask = () => {
       <div className='p-10'>
         <h1 className='text-2xl font-bold text-center mb-6 text-[#003366]'>Add Task</h1>
         <p className='text-center mt-3 max-w-3xl mx-auto'>
-          Easily post a new task to SkillBid by providing a clear title, description, deadline, and budget. Whether you're looking for help with design, writing, development, or any other service, our platform connects you with skilled freelancers ready to take it on.
+          Easily post a new task to SkillBid by providing a clear title, description, deadline, and budget...
         </p>
       </div>
 
@@ -46,7 +48,7 @@ const AddTask = () => {
             <input
               type="text"
               name="name"
-              defaultValue="John"
+              defaultValue={user?.displayName || ''}
               readOnly
               className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#3DB34B]"
             />
@@ -57,7 +59,7 @@ const AddTask = () => {
             <input
               type="email"
               name="email"
-              defaultValue="john@example.com"
+              defaultValue={user?.email || ''}
               readOnly
               className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#3DB34B]"
             />

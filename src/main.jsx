@@ -7,11 +7,15 @@ import { RouterProvider } from "react-router";
 
 import router from './Router/Router';
 
+import AuthProvider from './Components/AuthProvider';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ToastContainer />
     
-      <RouterProvider router={router}></RouterProvider>
+      <AuthProvider>
+        <RouterProvider router={router}></RouterProvider>
+      </AuthProvider>
     
     
   </StrictMode>

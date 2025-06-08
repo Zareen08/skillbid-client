@@ -7,6 +7,12 @@ import TaskDetails from "../Components/TaskDetails";
 import BrowseTasks from "../Components/BrowseTasks";
 import AboutUs from "../Components/AboutUs";
 import Terms from "../Components/Terms";
+import SignUp from "../Components/SignUp";
+import Login from "../Components/Login";
+import Users from "../Components/Users";
+import AuthLayout from "../Components/AuthLayout";
+import MyPostedTasks from "../Components/MyPostedTask";
+import PrivateRoute from "./PrivateRoute";
 
 
 
@@ -29,7 +35,9 @@ const router = createBrowserRouter([
         },
         {
             path: 'addTask',
-            Component:AddTask,
+            element: (<PrivateRoute>
+                <AddTask></AddTask>
+            </PrivateRoute>)
         },
         {
             path: 'about',
@@ -41,8 +49,22 @@ const router = createBrowserRouter([
         },
         {
             path: 'task/:id',
-            Component: TaskDetails
+            element: (<PrivateRoute>
+                <TaskDetails></TaskDetails>
+            </PrivateRoute>)
         },
+        {
+          path: '/mytasks',
+          element: (<PrivateRoute>
+            <MyPostedTasks></MyPostedTasks>
+            </PrivateRoute>)
+        },
+        {
+            path: 'users',
+            loader:()=>fetch('http://localhost:4000/users'),
+            Component: Users
+        },
+        
         {
             path: 'updateTask/:id',
             loader: ({ params }) =>
@@ -51,6 +73,20 @@ const router = createBrowserRouter([
         },
     ]
   },
+  {
+    path:'/auth',
+    Component: AuthLayout,
+    children:[
+        {
+            path: '/auth/signup',
+            Component: SignUp,
+        },
+        {
+            path: '/auth/login',
+            Component: Login
+        },
+    ]
+  }
 ]);
 
 export default router
