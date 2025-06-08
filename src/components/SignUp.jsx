@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { AuthContex } from './AuthContex';
-import { updateProfile } from 'firebase/auth';
+import { GoogleAuthProvider, signInWithPopup, updateProfile } from 'firebase/auth';
 import { Link, useNavigate } from 'react-router'; 
 import { toast } from 'react-toastify';
+import { auth } from '../firebase/firebase.init';
 
 const SignUp = () => {
   const { createUser } = useContext(AuthContex);
+  const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
 
   const handleSignUp = (e) => {
@@ -65,6 +67,17 @@ const SignUp = () => {
       });
   };
 
+  const handleGoogleRegister = () => {
+    signInWithPopup(auth, provider)
+      .then(() => {
+        toast.success('Google sign-in successful!');
+        navigate('/');
+      })
+      .catch(err => {
+        toast.error(err.message);
+      });
+  };
+
   return (
     <div>
       <div className="p-12">
@@ -97,6 +110,11 @@ const SignUp = () => {
                 </Link>
               </p>
             </form>
+            <div className="mt-6 text-center">
+          <button onClick={handleGoogleRegister} className="w-full bg-[#003366] text-white p-2 rounded hover:bg-red-600">
+            Sign up with Google
+          </button>
+        </div>
           </div>
         </div>
       </div>

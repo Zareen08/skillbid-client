@@ -13,6 +13,8 @@ import Users from "../Components/Users";
 import AuthLayout from "../Components/AuthLayout";
 import MyPostedTasks from "../Components/MyPostedTask";
 import PrivateRoute from "./PrivateRoute";
+import Error from "../Components/error/Error";
+import Loader from "../Components/Loader";
 
 
 
@@ -22,14 +24,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     Component: MainLayout,
+    errorElement: <Error></Error>,
     children:[
         {
             index:true,
+            hydrateFallbackElement: <Loader></Loader>,
             loader:()=>fetch('http://localhost:4000/tasks') ,
             Component: Home,
         },
         {
             path: '/browsetask',
+            hydrateFallbackElement: <Loader></Loader>,
             loader:()=>fetch('http://localhost:4000/tasks') ,
             Component: BrowseTasks,
         },
@@ -49,24 +54,28 @@ const router = createBrowserRouter([
         },
         {
             path: 'task/:id',
+            hydrateFallbackElement: <Loader></Loader>,
             element: (<PrivateRoute>
                 <TaskDetails></TaskDetails>
             </PrivateRoute>)
         },
         {
           path: '/mytasks',
+          hydrateFallbackElement: <Loader></Loader>,
           element: (<PrivateRoute>
             <MyPostedTasks></MyPostedTasks>
             </PrivateRoute>)
         },
         {
             path: 'users',
+            hydrateFallbackElement: <Loader></Loader>,
             loader:()=>fetch('http://localhost:4000/users'),
             Component: Users
         },
         
         {
             path: 'updateTask/:id',
+            hydrateFallbackElement: <Loader></Loader>,
             loader: ({ params }) =>
             fetch(`http://localhost:4000/tasks/${params.id}`),
             Component:UpdateTask,
