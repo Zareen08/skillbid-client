@@ -9,24 +9,27 @@ const MyPostedTasks = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user?.email) {
-      fetch(`https://skillbid-server-site.vercel.app/tasks?email=${user.email}`)
-        .then((res) => res.json())
-        .then((data) => setMyTasks(data))
-        .catch((err) => console.error('Error fetching tasks:', err));
-    }
-  }, [user]);
+  if (user?.email) {
+    fetch('https://skillbid-server-site.vercel.app/tasks')
+      .then((res) => res.json())
+      .then((data) => {
+        const userTasks = data.filter(task => task.email === user.email);
+        setMyTasks(userTasks);
+      })
+      .catch((err) => console.error('Error fetching tasks:', err));
+  }
+}, [user]);
 
   const handleDelete = (id) => {
     const confirm = window.confirm('Are you sure you want to delete this task?');
     if (!confirm) return;
 
-    fetch(`https://skillbid-server-site.vercel.app/tasks${id}`, {
+    fetch(`https://skillbid-server-site.vercel.app/tasks/${id}`, {
       method: 'DELETE'
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.deletedCount > 0) {
+        if (data.deletedCount) {
           toast.success('Task deleted');
           setMyTasks(prev => prev.filter(task => task._id !== id));
         }
