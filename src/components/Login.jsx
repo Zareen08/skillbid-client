@@ -33,10 +33,10 @@ const Login = () => {
         })
         .then(res => res.json())
         .then(data =>{
-            console.log('after update', data)
+            // console.log('after update', data)
         })
         toast.success('Login successful!');
-        console.log(result.user);
+        // console.log(result.user);
         navigate('/');
       })
       .catch((error) => {

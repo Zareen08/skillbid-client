@@ -3,7 +3,7 @@ SkillBid
 A dynamic task-posting and bidding platform where users can post tasks and freelancers can browse and place bids.
 
 Live Site
-[ Visit SkillBid Live](https://your-live-site-url.com)
+[ Visit SkillBid Live](https://skillbid-3db67.web.app/)
 
 Features
 

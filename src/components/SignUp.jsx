@@ -57,7 +57,7 @@ const SignUp = () => {
       })
       .then((res) => res.json())
       .then((data) => {
-        console.log('User saved to DB:', data);
+        // console.log('User saved to DB:', data);
         toast.success('Registration successful!');
         navigate('/');
       })
