@@ -8,7 +8,7 @@ const TaskDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/tasks/${id}`)
+    fetch(`https://skillbid-server-site.vercel.app/tasks/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setTask(data);
@@ -22,7 +22,7 @@ const TaskDetails = () => {
   }, [id]);
 
   const handleBid = () => {
-    fetch(`http://localhost:4000/tasks/${id}/bid`, {
+    fetch(`https://skillbid-server-site.vercel.app/tasks/${id}/bid`, {
       method: 'PATCH'
     })
       .then(res => res.json())

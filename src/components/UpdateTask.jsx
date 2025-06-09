@@ -12,7 +12,7 @@ const UpdateTask = () => {
         const updatedTask = Object.fromEntries(formData.entries())
         console.log(updatedTask)
 
-        fetch(`http://localhost:4000/tasks/${_id}`,{
+        fetch(`https://skillbid-server-site.vercel.app/tasks/${_id}`,{
            method: 'PUT',
            headers: {
             'content-type':'application/json'

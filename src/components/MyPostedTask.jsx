@@ -10,7 +10,7 @@ const MyPostedTasks = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:4000/tasks?email=${user.email}`)
+      fetch(`https://skillbid-server-site.vercel.app/tasks?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setMyTasks(data))
         .catch((err) => console.error('Error fetching tasks:', err));
@@ -21,7 +21,7 @@ const MyPostedTasks = () => {
     const confirm = window.confirm('Are you sure you want to delete this task?');
     if (!confirm) return;
 
-    fetch(`http://localhost:4000/tasks/${id}`, {
+    fetch(`https://skillbid-server-site.vercel.app/tasks${id}`, {
       method: 'DELETE'
     })
       .then((res) => res.json())
@@ -62,7 +62,7 @@ const MyPostedTasks = () => {
                   <td className="space-x-2">
                     <Link to={`/updateTask/${task._id}`} className="btn btn-sm bg-[#003366] text-white">Update</Link>
                     <button onClick={() => handleDelete(task._id)} className="btn btn-sm btn-error text-white">Delete</button>
-                    <Link to={`/task/${task._id}/bids`} className="btn btn-sm btn-success text-white">Bids</Link>
+                    <Link to={`/task/${task._id}`} className="btn btn-sm btn-success text-white">Bids</Link>
                   </td>
                 </tr>
               ))}

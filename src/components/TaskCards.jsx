@@ -19,7 +19,7 @@ const { _id,title, photo, description, deadline, budget} = task;
     
      if (result.isConfirmed) {
 
-        fetch(`http://localhost:4000/tasks/${_id}`,{
+        fetch(`https://skillbid-server-site.vercel.app/tasks/${_id}`,{
             method: 'DELETE',
 
         })

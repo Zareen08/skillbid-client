@@ -46,7 +46,7 @@ const SignUp = () => {
           };
 
          
-          return fetch('http://localhost:4000/users', {
+          return fetch('https://skillbid-server-site.vercel.app/users', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

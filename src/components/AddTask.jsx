@@ -11,7 +11,7 @@ const AddTask = () => {
     const formData = new FormData(form);
     const newTask = Object.fromEntries(formData.entries());
 
-    fetch('http://localhost:4000/tasks', {
+    fetch('https://skillbid-server-site.vercel.app/tasks', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

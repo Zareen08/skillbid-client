@@ -29,13 +29,13 @@ const router = createBrowserRouter([
         {
             index:true,
             hydrateFallbackElement: <Loader></Loader>,
-            loader:()=>fetch('http://localhost:4000/tasks') ,
+            loader:()=>fetch('https://skillbid-server-site.vercel.app/featured-tasks') ,
             Component: Home,
         },
         {
             path: '/browsetask',
             hydrateFallbackElement: <Loader></Loader>,
-            loader:()=>fetch('http://localhost:4000/tasks') ,
+            loader:()=>fetch('https://skillbid-server-site.vercel.app/tasks') ,
             Component: BrowseTasks,
         },
         {
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         {
             path: 'users',
             hydrateFallbackElement: <Loader></Loader>,
-            loader:()=>fetch('http://localhost:4000/users'),
+            loader:()=>fetch('https://skillbid-server-site.vercel.app/users'),
             Component: Users
         },
         
@@ -77,7 +77,7 @@ const router = createBrowserRouter([
             path: 'updateTask/:id',
             hydrateFallbackElement: <Loader></Loader>,
             loader: ({ params }) =>
-            fetch(`http://localhost:4000/tasks/${params.id}`),
+            fetch(`https://skillbid-server-site.vercel.app/tasks/${params.id}`),
             Component:UpdateTask,
         },
     ]

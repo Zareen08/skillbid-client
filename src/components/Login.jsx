@@ -24,7 +24,7 @@ const Login = () => {
             email,
             lastSignInTime: result.user?.metadata?.lastSignInTime
         }
-        fetch('http://localhost:4000/users',{
+        fetch('https://skillbid-server-site.vercel.app/users',{
             method: 'PATCH',
             headers:{
                 'content-type':'application/json'
