@@ -65,44 +65,18 @@ const Header = () => {
       </li>
 
       {user && (
-        <>
-          <li>
-            <NavLink
-              to="/addtask"
-              className={({ isActive }) =>
-                isActive
-                  ? 'font-semibold text-white bg-black/20'
-                  : 'hover:bg-black/10 transition-colors'
-              }
-            >
-              Add Task
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/mytasks"
-              className={({ isActive }) =>
-                isActive
-                  ? 'font-semibold text-white bg-black/20'
-                  : 'hover:bg-black/10 transition-colors'
-              }
-            >
-              My Tasks
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-                isActive
-                  ? 'font-semibold text-white bg-black/20'
-                  : 'hover:bg-black/10 transition-colors'
-              }
-            >
-              Dashboard
-            </NavLink>
-          </li>
-        </>
+        <li>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive
+                ? 'font-semibold text-white bg-black/20'
+                : 'hover:bg-black/10 transition-colors'
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
       )}
     </>
   );
@@ -111,7 +85,6 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-[#bbb5dd] shadow-md">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          
           <Link to="/" className="flex items-center space-x-2">
             <img
               src="/logo.png"
@@ -120,12 +93,10 @@ const Header = () => {
             />
           </Link>
 
-          
           <nav className="hidden md:flex items-center space-x-1">
             <ul className="flex space-x-5">{menuItems}</ul>
           </nav>
 
-          
           <div className="flex items-center space-x-4">
             <Theme />
 
@@ -166,7 +137,6 @@ const Header = () => {
               </div>
             )}
 
-            
             <div className="md:hidden">
               <button className="text-white focus:outline-none">
                 <svg
@@ -187,7 +157,6 @@ const Header = () => {
           </div>
         </div>
 
-        
         <div className="md:hidden pb-3 pt-2">
           <ul className="flex flex-col space-y-1">{menuItems}</ul>
         </div>

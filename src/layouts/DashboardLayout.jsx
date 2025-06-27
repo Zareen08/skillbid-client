@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, NavLink } from 'react-router';
+import { Outlet, NavLink } from 'react-router'; 
 
 const DashboardLayout = () => {
   return (
@@ -26,6 +26,22 @@ const DashboardLayout = () => {
             Profile
           </NavLink>
           <NavLink
+            to="/dashboard/addtasks"
+            className={({ isActive }) =>
+              isActive ? 'text-teal-400 font-semibold' : 'hover:text-teal-300'
+            }
+          >
+            Add Tasks
+          </NavLink>
+          <NavLink
+            to="/dashboard/mytasks"
+            className={({ isActive }) =>
+              isActive ? 'text-teal-400 font-semibold' : 'hover:text-teal-300'
+            }
+          >
+            My Tasks
+          </NavLink>
+          <NavLink
             to="/"
             className={({ isActive }) =>
               isActive ? 'text-teal-400 font-semibold' : 'hover:text-teal-300'
@@ -36,7 +52,6 @@ const DashboardLayout = () => {
         </nav>
       </aside>
 
-      
       <main className="flex-1 p-8">
         <Outlet />
       </main>

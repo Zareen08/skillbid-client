@@ -45,12 +45,6 @@ const router = createBrowserRouter([
             Component: BrowseTasks,
         },
         {
-            path: 'addTask',
-            element: (<PrivateRoute>
-                <AddTask></AddTask>
-            </PrivateRoute>)
-        },
-        {
             path: 'about',
             Component:AboutUs,
         },
@@ -67,13 +61,6 @@ const router = createBrowserRouter([
             hydrateFallbackElement: <Loader></Loader>,
             element: (<PrivateRoute>
                 <TaskDetails></TaskDetails>
-            </PrivateRoute>)
-        },
-        {
-          path: '/mytasks',
-          hydrateFallbackElement: <Loader></Loader>,
-          element: (<PrivateRoute>
-            <MyPostedTasks></MyPostedTasks>
             </PrivateRoute>)
         },
         {
@@ -120,7 +107,23 @@ const router = createBrowserRouter([
         </PrivateRoute> }, 
     { path: 'profile', element: <PrivateRoute>
         <Profile></Profile>
-    </PrivateRoute> } 
+    </PrivateRoute> },
+    {
+      path: "mytasks",
+      element: (
+        <PrivateRoute>
+          <MyPostedTasks />
+        </PrivateRoute>
+      ),
+    }, 
+    {
+      path: "addtasks",
+      element: (
+        <PrivateRoute>
+          <AddTask/>
+        </PrivateRoute>
+      ),
+    }, 
   ],
       
 
