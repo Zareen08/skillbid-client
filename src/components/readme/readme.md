@@ -29,17 +29,24 @@ Loading Spinner & Error Pages
   Custom loading indicator and error page for better UX.
 
 
-Used NPM Packages
+NPM Dependencies
 
-| Package          | Purpose |
+| Package           | Purpose                                                      |
+|-------------------|--------------------------------------------------------------|
+| react-router-dom  | Client-side routing for navigation                           |
+| react-toastify    | Toast notifications (success/error messages)                 |
+| react-slick       | Carousel/slider used for showcasing content                  |
+| sweetalert2       | Popup alerts for task success/error feedback                 |
+| firebase          | Authentication and user state management                     |
+| daisyui           | Pre-built Tailwind CSS UI components                         |
+| tailwindcss       | Utility-first CSS framework                                  |
+| axios             | API requests (used in some pages)                            |
+| express           | Backend server with routing                                  |
+| cors              | Enable cross-origin requests                                 |
+| dotenv            | Secure environment variables                                 |
+| mongodb           | MongoDB Node.js driver for connecting to the database        |
+| nodemon           | Auto-reloads the server during development                   |
 
-| react-router-dom | Client-side routing for navigation |
-| react-toastify   | Beautiful toast notifications (e.g., success, error messages) |
-| react-slick      | Carousel/slider used for showcasing content |
-| sweetalert2      | Popup alerts for task success/error feedback |
-| firebase         | Authentication and user state management |
-| daisyui          | Pre-built Tailwind CSS component library |
-| tailwindcss      | Utility-first CSS framework for styling |
 
 
 
@@ -51,6 +58,18 @@ Tech Stack
 -UI Enhancements: React Toastify, SweetAlert2, React Slick  
 -Backend : Node.js + Express + MongoDB 
 
+
+How to Run SkillBid Locally
+1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/skillbid.git
+2. Navigate into the Project
+bash
+Copy
+Edit
+cd skillbid
+3. Install Dependencies
 
 
 
