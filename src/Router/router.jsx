@@ -15,6 +15,12 @@ import MyPostedTasks from "../Components/MyPostedTask";
 import PrivateRoute from "./PrivateRoute";
 import Error from "../Components/error/Error";
 import Loader from "../Components/Loader";
+import { homeLoader } from "../Components/homeLoader";
+import FindByTaskCategory from "../Components/FindByTaskCategory";
+import DashboardLayout from "../Layouts/DashboardLayout";
+import Dashboard from "../Components/DashBoard";
+import Profile from "../Components/Profile";
+import Contact from "../Components/Contact";
 
 
 
@@ -29,7 +35,7 @@ const router = createBrowserRouter([
         {
             index:true,
             hydrateFallbackElement: <Loader></Loader>,
-            loader:()=>fetch('https://skillbid-server-site.vercel.app/featured-tasks') ,
+            loader: homeLoader ,
             Component: Home,
         },
         {
@@ -47,6 +53,10 @@ const router = createBrowserRouter([
         {
             path: 'about',
             Component:AboutUs,
+        },
+        {
+            path: 'contact',
+            Component: Contact,
         },
         {
             path: 'terms',
@@ -80,6 +90,11 @@ const router = createBrowserRouter([
             fetch(`https://skillbid-server-site.vercel.app/tasks/${params.id}`),
             Component:UpdateTask,
         },
+
+        {
+        path: 'tasks/category/:category',
+        Component: FindByTaskCategory 
+        }
     ]
   },
   {
@@ -95,7 +110,21 @@ const router = createBrowserRouter([
             Component: Login
         },
     ]
-  }
+  },
+ {
+    path: "/dashboard",
+    Component: DashboardLayout,
+     children: [
+    { index: true, element: <PrivateRoute>
+        <Dashboard></Dashboard>
+        </PrivateRoute> }, 
+    { path: 'profile', element: <PrivateRoute>
+        <Profile></Profile>
+    </PrivateRoute> } 
+  ],
+      
+
+ }
 ]);
 
 export default router

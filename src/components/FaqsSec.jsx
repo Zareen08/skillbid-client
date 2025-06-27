@@ -22,7 +22,7 @@ const faqs = [
 const FaqsSec = () => {
   return (
     <div className="p-8 max-w-4xl mx-auto">
-      <h2 className="text-4xl md:text-6xl mb-8 text-center p-12 ">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#5f5a7c] text-center mb-7">
         Frequently Asked Questions
       </h2>
       <div className="space-y-4">

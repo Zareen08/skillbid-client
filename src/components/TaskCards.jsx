@@ -1,76 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Swal from 'sweetalert2';
 
-const TaskCards = ({task, tasks, setTasks}) => {
-const { _id,title, photo, description, deadline, budget} = task;
+const TaskCards = ({ task }) => {
+  const { _id, title, photo, description, deadline, budget } = task;
 
-    const handleDelete = (_id)=>{
-     console.log(_id)
-     Swal.fire({
-     title: "Are you sure?",
-     text: "You won't be able to revert this!",
-     icon: "warning",
-     showCancelButton: true,
-     confirmButtonColor: "#3085d6",
-     cancelButtonColor: "#d33",
-     confirmButtonText: "Yes, delete it!"
-   }).then((result) => {
-    
-     if (result.isConfirmed) {
+  return (
+    <div className="bg-base dark:bg-gray-800 border border-[#bbb5dd] dark:border-[#8882bb] rounded-lg shadow-md p-4 flex flex-col h-full transition duration-300">
+      <img
+        src={photo}
+        alt={title}
+        className="w-full h-40 object-cover rounded mb-3"
+      />
+      <h3 className="text-xl font-semibold mb-2 text-[#bbb5dd] dark:text-[#c2bcf0]">
+        {title}
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 text-sm flex-1">
+        {description.slice(0, 80)}...
+      </p>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2"> {deadline}</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+         Budget: ${budget}
+      </p>
 
-        fetch(`https://skillbid-server-site.vercel.app/tasks/${_id}`,{
-            method: 'DELETE',
-
-        })
-        .then(res=> res.json())
-        .then(data =>{
-            if(data.deletedCount){
-              Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success"
-              });
-
-              const remainingTasks = tasks.filter(tas=> tas._id !==_id);
-              setTasks(remainingTasks);
-            }
-        })
-     
-  }
-});
-    }
-    return (
-        <div>
-            <div className="card card-side bg-base-100 shadow-sm h-80">
-           <figure>
-             <img
-               src={photo}
-               alt="taskPic" className='w-50 h-50' />
-           </figure>
-           <div className="flex mt-20 ms-2 w-full justify-around">
-             <div>
-             <h2 className="card-title">{title}</h2>
-
-             <p>{description}</p>
-             <p>{deadline}</p>
-             <p>{budget}$</p>
-             </div>
-             <div className='card-actions justify-end'>
-                <div className="join join-vertical">
-            <Link to={`/task/${_id}`}>
-            <button className="btn join-item text-white bg-[#3DB34B]">View</button>
-            </Link>
-            <Link to={`/updateTask/${_id}`}>
-            <button className="btn join-item text-white bg-[#3DB34B]">Edit</button>
-            </Link>
-            <button onClick={()=>handleDelete(_id)} className="btn join-item text-white bg-[#3DB34B]">X</button>
-            </div>
-             </div>
-           </div>
-         </div>
-        </div>
-    );
+      <div className="mt-auto text-center">
+        <Link to={`/task/${_id}`}>
+          <button className="btn btn-sm bg-[#bbb5dd] text-white hover:bg-[#a19bc7] dark:hover:bg-[#a79ed9] transition">
+            See More
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
 };
 
 export default TaskCards;
